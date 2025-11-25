@@ -39,26 +39,18 @@ export default function HRDashboard({
         <StatCard
           title="Total Employees"
           value={stats.totalEmployees}
-          {/* trend={stats.totalEmployeesTrend}
-          icon="👥" */}
         />
         <StatCard
           title="Active Departments"
           value={stats.activeDepartments}
-          {/* trend={stats.activeDepartmentsTrend}
-          icon="🏢" */}
         />
         <StatCard
           title="New Joinings"
           value={stats.newJoinings}
-          {/* trend={stats.newJoiningsTrend}
-          icon="🆕" */}
         />
         <StatCard
           title="Pending Leaves"
           value={stats.pendingLeaves}
-          {/* trend={stats.pendingLeavesTrend}
-          icon="📅" */}
         />
       </div>
 
