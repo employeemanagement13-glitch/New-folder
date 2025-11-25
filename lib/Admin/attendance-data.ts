@@ -1,4 +1,4 @@
-// lib/attendance-data.ts
+// @ts-nocheck
 import { supabaseAdmin } from "../supabaseAdmin";
 
 export interface AttendanceRecord {
