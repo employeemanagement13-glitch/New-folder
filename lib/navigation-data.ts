@@ -18,7 +18,7 @@ export interface NavigationItem {
   href: string;
   icon: any;
   external?: boolean;
-  roles: ('admin' | 'hr' | 'manager' | 'employee')[];
+  roles?: ('admin' | 'hr' | 'manager' | 'employee')[];
 }
 
 // Define base navigation items without dynamic paths
