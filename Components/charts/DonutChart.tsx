@@ -22,19 +22,25 @@ export default function DonutChart({
     <ResponsiveContainer width="100%" height={height}>
       <RechartsPieChart>
         <Pie
-          data={data}
-          cx="50%"
-          cy="50%"
-          innerRadius={60}
-          outerRadius={80}
-          paddingAngle={5}
-          dataKey={dataKey}
-          label={({ name, percent }) => `${(percent * 100).toFixed(0)}%`}
-        >
-          {data.map((entry, index) => (
-            <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
-          ))}
-        </Pie>
+  data={data}
+  cx="50%"
+  cy="50%"
+  innerRadius={60}
+  outerRadius={80}
+  paddingAngle={5}
+  dataKey={dataKey}
+  label={({
+    name,
+    percent = 0, // default to 0 if undefined
+  }: {
+    name: string;
+    percent?: number;
+  }) => `${(percent * 100).toFixed(0)}%`}
+>
+  {data.map((entry, index) => (
+    <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
+  ))}
+</Pie>
         <Tooltip 
           formatter={(value: number, name: string, props: any) => {
             const item = data.find(d => d[nameKey] === props.payload[nameKey]);
