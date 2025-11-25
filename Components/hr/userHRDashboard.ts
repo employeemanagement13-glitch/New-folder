@@ -112,14 +112,6 @@ export function useHRDashboard() {
       interviewsScheduled: 0, // You'll need to calculate this
       hiringSuccessRate: 0, // You'll need to calculate this
       // Mock trend data - replace with actual calculations
-      totalEmployeesTrend: 12,
-      activeDepartmentsTrend: 5,
-      newJoiningsTrend: 8,
-      pendingLeavesTrend: -3,
-      openPositionsTrend: 15,
-      totalApplicantsTrend: 25,
-      interviewsScheduledTrend: 10,
-      hiringSuccessRateTrend: 5
     };
   };
 
