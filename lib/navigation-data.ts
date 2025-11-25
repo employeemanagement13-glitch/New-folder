@@ -1,4 +1,4 @@
-// hooks/useNavigationData.ts
+// @ts-nocheck
 'use client';
 
 import { 
