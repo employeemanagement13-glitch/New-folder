@@ -1,7 +1,7 @@
 // Components/charts/DonutChart.tsx
 'use client';
 
-import { PieChart as RechartsPieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip } from 'recharts';
+import { PieChart as RechartsPieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip, PieLabelRenderProps } from 'recharts';
 
 interface DonutChartProps {
   data: any[];
@@ -18,6 +18,13 @@ export default function DonutChart({
   colors, 
   height = 200 
 }: DonutChartProps) {
+
+  // Type-safe label renderer
+  const renderLabel = ({ name, percent }: PieLabelRenderProps) => {
+    const safePercent = typeof percent === 'number' ? percent : 0;
+    return `${(safePercent * 100).toFixed(0)}%`;
+  };
+
   return (
     <ResponsiveContainer width="100%" height={height}>
       <RechartsPieChart>
@@ -29,7 +36,7 @@ export default function DonutChart({
           outerRadius={80}
           paddingAngle={5}
           dataKey={dataKey}
-          label={({ name, percent }) => `${(percent * 100).toFixed(0)}%`}
+          label={renderLabel}
         >
           {data.map((entry, index) => (
             <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
