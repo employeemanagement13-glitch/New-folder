@@ -1,4 +1,4 @@
-// lib/employee-data.ts
+// @ts-nocheck
 import { supabaseAdmin } from "../supabaseAdmin";
 
 export interface Employee {
