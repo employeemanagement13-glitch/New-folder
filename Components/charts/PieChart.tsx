@@ -1,7 +1,7 @@
 // Components/charts/PieChart.tsx
 'use client';
 
-import { PieChart as RechartsPieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip } from 'recharts';
+import { PieChart as RechartsPieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip, PieLabelRenderProps } from 'recharts';
 
 interface PieChartProps {
   data: any[];
@@ -18,6 +18,14 @@ export default function PieChart({
   colors, 
   height = 200 
 }: PieChartProps) {
+
+  // Type-safe label renderer
+  const renderLabel = ({ name, percent }: PieLabelRenderProps) => {
+    const safePercent = typeof percent === 'number' ? percent : 0;
+    const safeName = name ?? 'Unknown';
+    return `${safeName}: ${(safePercent * 100).toFixed(0)}%`;
+  };
+
   return (
     <ResponsiveContainer width="100%" height={height}>
       <RechartsPieChart>
@@ -26,7 +34,7 @@ export default function PieChart({
           cx="50%"
           cy="50%"
           labelLine={false}
-          label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(0)}%`}
+          label={renderLabel}
           outerRadius={80}
           fill="#8884d8"
           dataKey={dataKey}
