@@ -259,7 +259,7 @@ export default function AddNotificationModal({
             <button
               type="submit"
               disabled={loading}
-              className="bg-gradient-to-r from-[#ff9d00] to-orange-500 text-black px-6 py-3 rounded-xl font-semibold hover:from-[#ff9d00]/90 hover:to-orange-500/90 transition-all duration-200 flex items-center gap-2 disabled:opacity-50"
+              className="bg-[#ff9d00] text-black px-6 py-3 rounded-xl font-semibold hover:from-[#ff9d00]/90 hover:to-orange-500/90 transition-all duration-200 flex items-center gap-2 disabled:opacity-50"
             >
               {loading ? (
                 <>
